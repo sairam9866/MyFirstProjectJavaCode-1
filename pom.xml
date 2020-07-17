@@ -1,0 +1,311 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.fedex</groupId>
+		<artifactId>ZipToDest</artifactId>
+		<version>1.0.3</version>
+	</parent>
+	<groupId>com.fedex</groupId>
+	<artifactId>ZD-Server</artifactId>
+	<version>1.0.3</version>
+	<packaging>jar</packaging>
+
+	<name>ZD-Server</name>
+	<description>Zip to Destination Service</description>
+
+	 <dependencies>
+		  <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-web</artifactId> 
+			<exclusions> <exclusion> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-logging</artifactId> 
+			</exclusion> </exclusions> </dependency> 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>io.lettuce</groupId>
+					<artifactId>lettuce-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.kstyrc</groupId>
+			<artifactId>embedded-redis</artifactId>
+			<version>0.6</version>
+		</dependency>
+
+		    <dependency> <groupId>com.fedex</groupId> <artifactId>ZD-Client</artifactId> 
+			<version>${project.version}</version> <scope>runtime</scope> </dependency>  
+			
+		 <!-- config client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+			<version>2.1.3.RELEASE</version>
+		</dependency>
+
+	
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		  <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> 
+			</dependency> <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> 
+			</dependency>  
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+		</dependency> 
+
+		<!-- UUID generator -->
+		<dependency>
+			<groupId>com.fasterxml.uuid</groupId>
+			<artifactId>java-uuid-generator</artifactId>
+			<version>3.1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/xml-path -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>xml-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.15</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.vimalselvam/cucumber-extentsreport -->
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>4.0.9</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-csv</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}-SNAPSHOT</finalName>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			  <plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>   
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				</plugin>
+			
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>2.8.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>Cucumber API Automation - Server</projectName>
+							<outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins> 
+
+	</build>
+	<!-- <repositories>
+		<repository>
+			<id>mvnown</id>
+			<name>Maven Repository Manager running on maven.ground.fedex.com
+            </name>
+			<url>http://maven.ground.fedex.com/m2</url>
+		</repository>
+		<repository>
+			<id>mvnproxy</id>
+			<name>Maven Proxy running on mvndev.ground.fedex.com</name>
+			<url>http://mvndev.ground.fedex.com:9999/m2</url>
+		</repository>
+		<repository>
+			<id>mvndev</id>
+			<name>Snapshot Maven Repository Manager running on
+                mvndev.ground.fedex.com</name>
+			<url>http://mvndev.ground.fedex.com/m2</url>
+		</repository>
+		<repository>
+			<id>devframeworkrepo</id>
+			<name>Framework Repo</name>
+			<url>https://nexus.prod.cloud.fedex.com:8443/nexus/content/repositories/devframeworkrepo</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>devframework-snapshots</id>
+			<url>https://nexus.prod.cloud.fedex.com:8443/nexus/content/repositories/devframework-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>fxg-releases</id>
+			<url>https://nexus.prod.cloud.fedex.com:8443/nexus/content/repositories/fxg-releases</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>fxg-releases</id>
+			<url>https://nexus.prod.cloud.fedex.com:8443/nexus/content/repositories/fxg-releases</url>
+		</repository>
+		<site>
+			<id>mvnown</id>
+			<url>scpexe://maven.ground.fedex.com/var/fedex/scm/mvn/httproot/site/${project.artifactId}/${project.artifactId}-${project.version}</url>
+		</site>
+	</distributionManagement> -->
+
+</project>
